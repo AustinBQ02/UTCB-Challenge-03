@@ -1,14 +1,16 @@
-# UTCB-Challenge-03
+# UTCB-Challenge-03: JavaScript - Password Generator
 This is challenge 3 for the UT Coding Bootcamp (JavaScript Challenge: Password Generator).
+
+> This module's Challenge requires you to create an application that an employee can use to generate a random password based on criteria they've selected.   
+>This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write.   
+>It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+The goal of this project is to further my understanding of basic JavaScript by designing a password generator that meets specific criteria. (See User Stories and Acceptance Criteria in issues.)
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+Learning Moments  
+
 
 ## Table of Contents (Optional)
 
@@ -46,7 +48,9 @@ If you followed tutorials, include links to those here as well.
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+Please see LICENSE file.
+
+![MIT License](https://img.shields.io/github/license/AustinBQ02/c03-password-generator)
 
 ---
 
