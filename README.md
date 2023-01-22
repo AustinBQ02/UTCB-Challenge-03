@@ -9,10 +9,16 @@ This is challenge 3 for the UT Coding Bootcamp (JavaScript Challenge: Password G
 
 The goal of this project is to further my understanding of basic JavaScript by designing a password generator that meets specific criteria. (See User Stories and Acceptance Criteria in issues.)
 
-Learning Moments  
+### Learning Moments  
 
+While trying to do data validation on user input, I learned that not all numbers are created equal. [MDN `typeof()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+```
+typeof NaN === "number"; // Despite being "Not-A-Number"
+typeof Number("1") === "number"; // Number tries to parse things into numbers
+typeof Number("shoe") === "number"; // including values that cannot be type coerced to a number
+```
 
-## Table of Contents (Optional)
+## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
@@ -40,12 +46,17 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 Full-Stack Blog - Professional README Guide: 
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
+Traversy Media - JavaScript Password Generator tutorial
+- Youtube - https://youtu.be/duNmhKgtcsI
+- Codepen - https://codepen.io/FlorinPop17/pen/BaBePej 
+
+```
 List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
 If you followed tutorials, include links to those here as well.
-
+```
 ## License
 
 Please see LICENSE file.

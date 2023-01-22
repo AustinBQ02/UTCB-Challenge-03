@@ -1,11 +1,14 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var generatedPassword = "";
+var arrayInclude = [];
+var countInclude = "";
 
 // TODO: function generatePassword()
 function generatePassword() {
   console.log("User Pressed Generate Password")
+  
   // series of prompts for password criteria
-
       // length between 8 and 128 characters
       let pwLength = prompt(
         "Enter a number between 8 and 128 for your password length:", 
@@ -20,6 +23,7 @@ function generatePassword() {
           if (pwLength >= 8 && pwLength <= 128) {
             console.log(`User entered ${pwLength} for password length.`);
             } else {
+            alert("You must enter a number between 8 and 128.")
             console.log(`User does not follow basic instructions.`);
             return "Press button to try again."
             };
@@ -27,6 +31,7 @@ function generatePassword() {
       
       // provide instructions for the prompts to follow
       alert("You will be prompted to select password criteria on the next pop-ups.\nYou MUST choose at least 1 of the 4 options.\nPress the OK button to include the option displayed or Cancel to skip it.\nPress OK now.")
+      
       // include lowercase, uppercase, numbers, special
       let includeLower = confirm("1. Would you like to include lowercase letters?\nPress OK to include or Cancel to skip.")
         console.log(`includeLower is ${includeLower}.`)
@@ -48,24 +53,64 @@ function generatePassword() {
             return "Press button to try again."
           } else {
             console.log(`Password criteria are - 
-            Lowercase: ${includeLower}
-            Uppercase: ${includeUpper}
-            Numbers: ${includeNumbers}
-            Special: ${includeSpecial}`)
+              Lowercase: ${includeLower}
+              Uppercase: ${includeUpper}
+              Numbers: ${includeNumbers}
+              Special: ${includeSpecial}
+              Length: ${pwLength}`)
           };
 
   // generate password based on user input
-      // generate lowercase
+    // determine which criteria to include - Traversy Media tutorial
+    // sum of the include* variables with value of true; this will limit a later loop
+    function combineIncludes(includeLower, includeUpper, includeNumbers, includeSpecial, pwLength) {
+    
+    countInclude = includeLower + includeUpper + includeNumbers + includeSpecial;
+    console.log (`The number of criteria selected is: ${countInclude}`);
 
-      // generate uppercase
+     
+    arrayInclude = [{includeLower}, {includeUpper}, {includeNumbers}, {includeSpecial}].filter(item => Object.values(item)[0]);
+    console.log (`The array of included criteria is: ${JSON.stringify(arrayInclude)}`);
+    };
 
-      // generate numbers
 
-      // generate special
+
+    // Generate Random Character functions - Traversy Media tutorial
+
+    // generate lowercase
+    var getRandomLowercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    // generate uppercase
+    var getRandomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    // generate numbers
+    var getRandomNumber = () => +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    // generate special
+    const symbols = '!@#$%^&*(){}[]=<>/,.';
+    let getRandomSpecial = () => symbols[Math.floor(Math.random() * symbols.length)];
+
+
+
+    const combineRandom = {
+      includeLower: getRandomLowercase,
+      includeUpper: getRandomUppercase,
+      includeNumbers: getRandomNumber,
+      includeSpecial: getRandomSpecial
+    }
+
+    // loop for each criteria included
+    for (let i=0; i<pwLength; i+countInclude) {
+      arrayInclude.forEach(included => { 
+        const funcName = Object.keys(included)[0];
+        generatedPassword += combineRandom[funcName]();
+      });
+    }
+
+
+    const finalPassword = generatedPassword.slice(0, pwLength)
+
 
 
   // display generated password on page
-  return "Password12345"
+  return finalPassword;
 }
 
 // Write password to the #password input
