@@ -6,21 +6,36 @@ function generatePassword() {
   console.log("User Pressed Generate Password")
   // series of prompts for password criteria
 
-      // length betwee 8 and 128 characters
-
-          // repeat if not between 8-128
+      // length between 8 and 128 characters
+      let pwLength = prompt(
+        "Enter a number between 8 and 128 for your password length:", 
+        "12");
+      // repeat if not between 8-128
+      if (pwLength < 8 || pwLength > 128) {
+        pwLength = prompt(
+          "You must enter a number between 8 and 128 for your password length:", 
+          "12");
+      } else {
+        console.log(`User entered ${pwLength} for password length.`);
+      };
 
       // include lowercase, uppercase, numbers, special
-
+      
           // repeat if no choice was made
   
   // generate password based on user input
+      // generate lowercase
+
+      // generate uppercase
+
+      // generate numbers
+
+      // generate special
 
 
   // display generated password on page
   return "Password12345"
 }
-
 
 // Write password to the #password input
 function writePassword() {
@@ -29,6 +44,8 @@ function writePassword() {
   // displays result of generatePassword function
   passwordText.value = password;
 }
+
+// !#$%&()*+,-.:;<=>?@[]^_{|}~
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
