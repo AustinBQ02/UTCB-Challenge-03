@@ -11,13 +11,19 @@ function generatePassword() {
         "Enter a number between 8 and 128 for your password length:", 
         "12");
       // repeat if not between 8-128
-      if (pwLength < 8 || pwLength > 128) {
+      if (pwLength >= 8 && pwLength <= 128) {
+        console.log(`User entered ${pwLength} for password length.`);
+        } else {
         pwLength = prompt(
           "You must enter a number between 8 and 128 for your password length:", 
-          "12");
-      } else {
-        console.log(`User entered ${pwLength} for password length.`);
-      };
+          "12"); 
+          if (pwLength >= 8 && pwLength <= 128) {
+            console.log(`User entered ${pwLength} for password length.`);
+            } else {
+            console.log(`User does not follow basic instructions.`);
+            return "Press button to try again."
+            };
+        };
 
       // include lowercase, uppercase, numbers, special
       
