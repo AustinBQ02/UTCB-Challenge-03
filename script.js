@@ -1,5 +1,8 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var generatedPassword = "";
+var arrayInclude = [];
+var countInclude = "";
 
 // TODO: function generatePassword()
 function generatePassword() {
@@ -58,20 +61,56 @@ function generatePassword() {
           };
 
   // generate password based on user input
+    // determine which criteria to include - Traversy Media tutorial
+    // sum of the include* variables with value of true; this will limit a later loop
+    function combineIncludes(includeLower, includeUpper, includeNumbers, includeSpecial, pwLength) {
+    
+    countInclude = includeLower + includeUpper + includeNumbers + includeSpecial;
+    console.log (`The number of criteria selected is: ${countInclude}`);
 
-  // Generate Random Character functions - Traversy Media tutorial
-      // generate lowercase
-      let getRandomLowercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-      // generate uppercase
-      let generateRandomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-      // generate numbers
-      let getRandomNumber = () => +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-      // generate special
-      const symbols = '!@#$%^&*(){}[]=<>/,.';
-      let getRandomSpecial = () => symbols[Math.floor(Math.random() * symbols.length)];
+     
+    arrayInclude = [{includeLower}, {includeUpper}, {includeNumbers}, {includeSpecial}].filter(item => Object.values(item)[0]);
+    console.log (`The array of included criteria is: ${JSON.stringify(arrayInclude)}`);
+    };
+
+
+
+    // Generate Random Character functions - Traversy Media tutorial
+
+    // generate lowercase
+    var getRandomLowercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+    // generate uppercase
+    var getRandomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+    // generate numbers
+    var getRandomNumber = () => +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    // generate special
+    const symbols = '!@#$%^&*(){}[]=<>/,.';
+    let getRandomSpecial = () => symbols[Math.floor(Math.random() * symbols.length)];
+
+
+
+    const combineRandom = {
+      includeLower: getRandomLowercase,
+      includeUpper: getRandomUppercase,
+      includeNumbers: getRandomNumber,
+      includeSpecial: getRandomSpecial
+    }
+
+    // loop for each criteria included
+    for (let i=0; i<pwLength; i+countInclude) {
+      arrayInclude.forEach(included => { 
+        const funcName = Object.keys(included)[0];
+        generatedPassword += combineRandom[funcName]();
+      });
+    }
+
+
+    const finalPassword = generatedPassword.slice(0, pwLength)
+
+
 
   // display generated password on page
-  return "Password12345"
+  return finalPassword;
 }
 
 // Write password to the #password input
