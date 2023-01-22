@@ -46,12 +46,17 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 Full-Stack Blog - Professional README Guide: 
 - https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
+Traversy Media - JavaScript Password Generator tutorial
+- Youtube - https://youtu.be/duNmhKgtcsI
+- Codepen - https://codepen.io/FlorinPop17/pen/BaBePej 
+
+```
 List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
 If you followed tutorials, include links to those here as well.
-
+```
 ## License
 
 Please see LICENSE file.

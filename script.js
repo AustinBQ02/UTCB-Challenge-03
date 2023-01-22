@@ -50,21 +50,25 @@ function generatePassword() {
             return "Press button to try again."
           } else {
             console.log(`Password criteria are - 
-            Lowercase: ${includeLower}
-            Uppercase: ${includeUpper}
-            Numbers: ${includeNumbers}
-            Special: ${includeSpecial}`)
+              Lowercase: ${includeLower}
+              Uppercase: ${includeUpper}
+              Numbers: ${includeNumbers}
+              Special: ${includeSpecial}
+              Length: ${pwLength}`)
           };
 
   // generate password based on user input
+
+  // Generate Random Character functions - Traversy Media tutorial
       // generate lowercase
-
+      let getRandomLowercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 97);
       // generate uppercase
-
+      let generateRandomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
       // generate numbers
-
+      let getRandomNumber = () => +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
       // generate special
-
+      const symbols = '!@#$%^&*(){}[]=<>/,.';
+      let getRandomSpecial = () => symbols[Math.floor(Math.random() * symbols.length)];
 
   // display generated password on page
   return "Password12345"
