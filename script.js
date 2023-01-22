@@ -24,11 +24,36 @@ function generatePassword() {
             return "Press button to try again."
             };
         };
-
-      // include lowercase, uppercase, numbers, special
       
-          // repeat if no choice was made
-  
+      // provide instructions for the prompts to follow
+      alert("You will be prompted to select password criteria on the next pop-ups.\nYou MUST choose at least 1 of the 4 options.\nPress the OK button to include the option displayed or Cancel to skip it.\nPress OK now.")
+      // include lowercase, uppercase, numbers, special
+      let includeLower = confirm("1. Would you like to include lowercase letters?\nPress OK to include or Cancel to skip.")
+        console.log(`includeLower is ${includeLower}.`)
+
+      let includeUpper = confirm("1. Would you like to include Uppercase letters?\nPress OK to include or Cancel to skip.")
+      console.log(`includeUpper is ${includeUpper}.`)
+
+      let includeNumbers = confirm("1. Would you like to include numbers?\nPress OK to include or Cancel to skip.")
+      console.log(`includeNumbers is ${includeNumbers}.`)
+
+      let includeSpecial = confirm("1. Would you like to include special characters?\nPress OK to include or Cancel to skip.")
+      console.log(`includeSpecial is ${includeSpecial}.`)
+      
+      // reset if no choice was made
+      if (includeLower === false && includeUpper === false &&
+          includeNumbers === false && includeSpecial === false) {
+            alert("You have to select at least 1 of the 4 options");
+            console.log(`User does not follow basic instructions.`);
+            return "Press button to try again."
+          } else {
+            console.log(`Password criteria are - 
+            Lowercase: ${includeLower}
+            Uppercase: ${includeUpper}
+            Numbers: ${includeNumbers}
+            Special: ${includeSpecial}`)
+          };
+
   // generate password based on user input
       // generate lowercase
 
