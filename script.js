@@ -4,8 +4,8 @@ var generateBtn = document.querySelector("#generate");
 // TODO: function generatePassword()
 function generatePassword() {
   console.log("User Pressed Generate Password")
+  
   // series of prompts for password criteria
-
       // length between 8 and 128 characters
       let pwLength = prompt(
         "Enter a number between 8 and 128 for your password length:", 
@@ -20,6 +20,7 @@ function generatePassword() {
           if (pwLength >= 8 && pwLength <= 128) {
             console.log(`User entered ${pwLength} for password length.`);
             } else {
+            alert("You must enter a number between 8 and 128.")
             console.log(`User does not follow basic instructions.`);
             return "Press button to try again."
             };
@@ -27,6 +28,7 @@ function generatePassword() {
       
       // provide instructions for the prompts to follow
       alert("You will be prompted to select password criteria on the next pop-ups.\nYou MUST choose at least 1 of the 4 options.\nPress the OK button to include the option displayed or Cancel to skip it.\nPress OK now.")
+      
       // include lowercase, uppercase, numbers, special
       let includeLower = confirm("1. Would you like to include lowercase letters?\nPress OK to include or Cancel to skip.")
         console.log(`includeLower is ${includeLower}.`)

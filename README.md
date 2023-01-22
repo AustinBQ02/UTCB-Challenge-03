@@ -9,10 +9,16 @@ This is challenge 3 for the UT Coding Bootcamp (JavaScript Challenge: Password G
 
 The goal of this project is to further my understanding of basic JavaScript by designing a password generator that meets specific criteria. (See User Stories and Acceptance Criteria in issues.)
 
-Learning Moments  
+### Learning Moments  
 
+While trying to do data validation on user input, I learned that not all numbers are created equal. [MDN `typeof()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+```
+typeof NaN === "number"; // Despite being "Not-A-Number"
+typeof Number("1") === "number"; // Number tries to parse things into numbers
+typeof Number("shoe") === "number"; // including values that cannot be type coerced to a number
+```
 
-## Table of Contents (Optional)
+## Table of Contents
 
 If your README is long, add a table of contents to make it easy for users to find what they need.
 
