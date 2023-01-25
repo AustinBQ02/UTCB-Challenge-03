@@ -120,7 +120,7 @@ console.log(arrayOfPossibleChars);
 function generatePassword() {
   console.log("User Pressed Generate Password")
 
-  // call promptCriteria
+ 
   promptCriteria();
 
   addToPossible();
@@ -132,7 +132,6 @@ function generatePassword() {
     finalPassword = finalPassword + arrayOfPossibleChars[randomChar];
   }
 
-  // finalPassword = "password12345"
   // display generated password on page
   return finalPassword;
 }
