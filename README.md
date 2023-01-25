@@ -33,7 +33,23 @@ https://austinbq02.github.io/c03-password-generator/
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Navigate to the website listed above, the press the big read button.
+
+![step1](./images/step1.jpg)
+
+Input the desired length for your password.
+
+![step2](./images/step2.jpg)
+
+Follow the instructions on screen. Click Okay to include that type of character in your password or cancel to pass.
+
+![step3](./images/step3.jpg)
+
+Copy your randomly generated password.
+
+![results](./images/result.jpg)
+
+Click the big red button to start over.
 
 
 ## Credits
