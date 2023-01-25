@@ -12,6 +12,13 @@ var includeUpper = "";
 var includeNumbers = "";
 var includeSpecial = "";
 
+var chosenCriteria = {
+  lower: "",
+  upper: "",
+  numbers: "",
+  special: ""
+};
+
 
 // TODO: function promptCriteria
 function promptCriteria() {
@@ -68,8 +75,14 @@ function promptCriteria() {
   };
   // numbers SHOULD BE NUMBERS
   pwLength = parseInt(pwLength, 10);
-  console.log(typeof (pwLength), pwLength);
-}
+
+  // add values to chosenCriteria for use in array of possible characters
+  chosenCriteria.lower = includeLower;
+  chosenCriteria.upper = includeUpper;
+  chosenCriteria.numbers = includeNumbers;
+  chosenCriteria.special = includeSpecial;
+  console.log(chosenCriteria);
+};
 
 // Create an array of all possible characters based on user criteria
 function addToPossible(){
@@ -78,7 +91,31 @@ function addToPossible(){
   const arrayNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   const arraySpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', ';', '.']
 
-  // push to array of possible characters based on true values from promptCriteria
+if (chosenCriteria.lower === true) {
+  arrayOfPossibleChars = arrayLower
+} else {
+  console.log(`User did not want to include lowercase letters.`)
+}
+
+if (chosenCriteria.upper === true) {
+  arrayOfPossibleChars = arrayOfPossibleChars.concat(arrayUpper);
+} else {
+  console.log(`User did not want to include uppercase letters.`)
+}
+
+if (chosenCriteria.numbers === true) {
+  arrayOfPossibleChars = arrayOfPossibleChars.concat(arrayNumbers);
+} else {
+  console.log(`User did not want to include numbers.`)
+}
+
+if (chosenCriteria.special === true) {
+  arrayOfPossibleChars = arrayOfPossibleChars.concat(arraySpecial);
+} else {
+  console.log(`User did not want to include special characters.`)
+}
+
+console.log(arrayOfPossibleChars);
 }
 
 
@@ -89,8 +126,7 @@ function generatePassword() {
   // call promptCriteria
   promptCriteria();
 
-
-
+  addToPossible();
 
   finalPassword = "password12345"
   // display generated password on page
