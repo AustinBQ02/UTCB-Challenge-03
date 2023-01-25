@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var generatedPassword = "";
 
 // Abandon all scope ye who enter here 
-var arrayInclude = [];
+var arrayOfPossibleChars = [];
 var countInclude = "";
 var pwLength = "";
 
@@ -65,9 +65,20 @@ function promptCriteria() {
               Numbers: ${includeNumbers}
               Special: ${includeSpecial}
               Length: ${pwLength}`)
-    console.log(typeof(pwLength));
+    console.log(typeof (pwLength));
   };
 }
+
+// Create an array of all possible characters based on user criteria
+function addToPossible(){
+  const arrayLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const arrayUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const arrayNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const arraySpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', ';', '.']
+
+  // push to array of possible characters based on true values from promptCriteria
+}
+
 
 // TODO: function generatePassword()
 function generatePassword() {
@@ -76,47 +87,7 @@ function generatePassword() {
   // call promptCriteria
   promptCriteria();
 
-  // generate password based on user input
-  // determine which criteria to include - Traversy Media tutorial
-  // sum of the include* variables with value of true; this will limit a later loop
-  // function combineIncludes(includeLower, includeUpper, includeNumbers, includeSpecial, pwLength) {
 
-  //   countInclude = includeLower + includeUpper + includeNumbers + includeSpecial;
-  //   console.log(`The number of criteria selected is: ${countInclude}`);
-
-
-  //   arrayInclude = [{ includeLower }, { includeUpper }, { includeNumbers }, { includeSpecial }].filter(item => Object.values(item)[0]);
-  //   console.log(`The array of included criteria is: ${JSON.stringify(arrayInclude)}`);
-  // };
-
-
-
-  // Generate Random Character functions - Traversy Media tutorial
-
-  // generate lowercase
-  var getRandomLowercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  // generate uppercase
-  var getRandomUppercase = () => String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  // generate numbers
-  var getRandomNumber = () => +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  // generate special
-  const symbols = '!@#$%^&*(){}[]=<>/,.';
-  var getRandomSpecial = () => symbols[Math.floor(Math.random() * symbols.length)];
-
-
-
-
-
-  // loop for each criteria included
-  for (let i = 0; i < pwLength; i + countInclude) {
-    arrayInclude.forEach(included => {
-      const funcName = Object.keys(included)[0];
-      generatedPassword += combineRandom[funcName]();
-    });
-  }
-
-
-  const finalPassword = generatedPassword.slice(0, pwLength)
 
 
 
