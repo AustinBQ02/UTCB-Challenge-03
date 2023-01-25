@@ -4,7 +4,6 @@ var generatedPassword = "";
 
 // Abandon all scope ye who enter here 
 var arrayOfPossibleChars = [];
-var countInclude = "";
 var pwLength = "";
 
 var includeLower = "";
@@ -18,7 +17,6 @@ var chosenCriteria = {
   numbers: "",
   special: ""
 };
-
 
 // TODO: function promptCriteria
 function promptCriteria() {
@@ -118,7 +116,6 @@ if (chosenCriteria.special === true) {
 console.log(arrayOfPossibleChars);
 }
 
-
 // TODO: function generatePassword()
 function generatePassword() {
   console.log("User Pressed Generate Password")
@@ -128,11 +125,17 @@ function generatePassword() {
 
   addToPossible();
 
-  finalPassword = "password12345"
+  // loop through array of possible characters based on selected pw length, choosing random characters
+  let finalPassword = "";
+  for (var i = 0; i < pwLength; i++){
+    let randomChar = Math.floor(Math.random() * arrayOfPossibleChars.length);
+    finalPassword = finalPassword + arrayOfPossibleChars[randomChar];
+  }
+
+  // finalPassword = "password12345"
   // display generated password on page
   return finalPassword;
 }
-
 
 // Write password to the #password input
 function writePassword() {
