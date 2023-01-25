@@ -65,8 +65,10 @@ function promptCriteria() {
               Numbers: ${includeNumbers}
               Special: ${includeSpecial}
               Length: ${pwLength}`)
-    console.log(typeof (pwLength));
   };
+  // numbers SHOULD BE NUMBERS
+  pwLength = parseInt(pwLength, 10);
+  console.log(typeof (pwLength), pwLength);
 }
 
 // Create an array of all possible characters based on user criteria
@@ -90,7 +92,7 @@ function generatePassword() {
 
 
 
-
+  finalPassword = "password12345"
   // display generated password on page
   return finalPassword;
 }
